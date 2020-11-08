@@ -23,6 +23,11 @@ class BankAccount:
         print(f"Hello {self.full_name}, you currently have a balance of ${self.balance} in your bank account.")
         return self.balance
 
+    def add_interest(self):
+        interest = self.balance * 0.00083
+        final_interest = round(interest, 2)
+        self.balance += final_interest
+
 first = BankAccount("Jim Lars")
 # print(first.__dict__)
 first.withdraw(20.49)
@@ -31,4 +36,6 @@ first.deposit(230.99)
 # print(first.balance)
 first.withdraw(20.49)
 # print(first.balance)
+first.get_balance()
+first.add_interest()
 first.get_balance()
