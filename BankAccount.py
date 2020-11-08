@@ -28,6 +28,14 @@ class BankAccount:
         final_interest = round(interest, 2)
         self.balance += final_interest
 
+    def print_receipt(self):
+        hidden_account = '****'
+        hidden_account += str(self.account_number)[4:]
+        print(f"""{self.full_name}
+Account No.: {hidden_account}
+Routing No.: {self.routing_number}
+Balance: ${self.balance}""")
+
 first = BankAccount("Jim Lars")
 # print(first.__dict__)
 first.withdraw(20.49)
@@ -39,3 +47,4 @@ first.withdraw(20.49)
 first.get_balance()
 first.add_interest()
 first.get_balance()
+first.print_receipt()
