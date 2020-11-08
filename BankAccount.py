@@ -12,7 +12,18 @@ class BankAccount:
         self.balance += amount
         print(f"Amount Deposited: ${amount}")
 
+    def withdraw(self, amount):
+        self.balance -= amount
+        print(f"Amount Withdrawn: ${amount}")
+        if (self.balance < amount):
+            print("Insufficient funds, you have been charged an overdraft fee of $10.")
+            self.balance -= 10.00
 
 first = BankAccount("Jim Lars")
 # print(first.__dict__)
+first.withdraw(20.49)
+# print(first.balance)
 first.deposit(230.99)
+# print(first.balance)
+first.withdraw(20.49)
+# print(first.balance)
