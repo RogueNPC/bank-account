@@ -1,17 +1,22 @@
 from random import randint
 
+# Bank Account class
 class BankAccount:
+    # class attributes
     routing_number = 123456789
 
+    # inital attributes
     def __init__(self, full_name):
         self.account_number = randint(10000000, 99999999)
         self.balance = 0
         self.full_name = full_name
 
+    # deposit method
     def deposit(self, amount):
         self.balance += amount
         print(f"Amount Deposited: ${amount}")
 
+    # withdraw method
     def withdraw(self, amount):
         print(f"Amount Withdrawn: ${amount}")
         if (self.balance < amount):
@@ -19,18 +24,23 @@ class BankAccount:
             self.balance -= 10.00
         self.balance -= amount
 
+    # get_balance method
     def get_balance(self):
         print(f"Hello {self.full_name}, you currently have a balance of ${round(self.balance, 2)} in your bank account.")
         return round(self.balance, 2)
 
+    # add_interest method
     def add_interest(self):
         interest = self.balance * 0.00083
         final_interest = round(interest, 2)
         self.balance += final_interest
 
+    #print_receipt method
     def print_receipt(self):
+        # hides first four digits of account number
         hidden_account = '****'
         hidden_account += str(self.account_number)[4:]
+
         print(f"""{self.full_name}
 Account No.: {hidden_account}
 Routing No.: {self.routing_number}
